@@ -5,4 +5,5 @@ class StringConst {
   static const String sPopularSerieses = 'Popular Serieses';
   static const String sSomethingWentWrong = 'Something went wrong!';
   static const String sPageNotFound = 'Page not found!!!';
+  static const String sNoDataAvailable = 'No data available';
 }

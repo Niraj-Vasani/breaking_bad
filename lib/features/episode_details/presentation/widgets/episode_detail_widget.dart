@@ -1,3 +1,4 @@
+import '../../../../core/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -76,9 +77,13 @@ class EpisodeDetailWidget extends StatelessWidget {
                             width: MediaQuery.of(context).size.width * 0.45,
                             height: MediaQuery.of(context).size.height * 0.32,
                             fit: BoxFit.cover,
-                            image: NetworkImage(
-                              characterList[index].img,
-                            ),
+                            image: characterList[index].img != null
+                                ? NetworkImage(
+                                    characterList[index].img!,
+                                  ) as ImageProvider
+                                : const AssetImage(
+                                    ImageConst.iNoImage,
+                                  ),
                           ),
                         ),
                         Expanded(
@@ -89,7 +94,8 @@ class EpisodeDetailWidget extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  characterList[index].portrayed,
+                                  characterList[index].portrayed ??
+                                      StringConst.sNoDataAvailable,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodyText1!

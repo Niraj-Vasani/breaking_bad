@@ -57,12 +57,24 @@ class EpisodeWithCharacterRepositoryImpl
           debugPrint("Failed to get episode details");
         },
         (episode) async {
+          List<String> appearedCharacterList = episode.characters;
           final List<CharacterModel> allCharacterList =
               await episodeWithCharacterDataSource.getAllCharacte();
 
           filteredCharacterList = allCharacterList.where((character) {
-            return episode.characters.contains(character.name);
+            if (episode.characters.contains(character.name.trim())) {
+              appearedCharacterList.remove(character.name.trim());
+              return true;
+            } else {
+              return false;
+            }
           }).toList();
+
+          for (var charName in appearedCharacterList) {
+            filteredCharacterList.add(
+              CharacterModel(name: charName),
+            );
+          }
         },
       );
 

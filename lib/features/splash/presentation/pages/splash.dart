@@ -5,8 +5,27 @@ import '../../../../core/constants/constants.dart';
 import '../../../../core/utils/app_router.dart';
 import '../cubit/splash_cubit.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  double _width = 50;
+  double _height = 50;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      setState(() {
+        _width = 300;
+        _height = 300;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,16 +44,13 @@ class SplashScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                ImageConst.iImdbClone,
-                width: 200,
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              CircularProgressIndicator(
-                valueColor:
-                    AlwaysStoppedAnimation<Color>(Colors.yellow.shade600),
+              AnimatedContainer(
+                width: _width,
+                height: _height,
+                duration: const Duration(seconds: 3),
+                child: Image.asset(
+                  ImageConst.iImdbClone,
+                ),
               ),
             ],
           ),

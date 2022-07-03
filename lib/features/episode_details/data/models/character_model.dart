@@ -2,17 +2,17 @@ import '../../domain/entities/character_entity.dart';
 
 class CharacterModel extends CharacterEntity {
   const CharacterModel({
-    required super.charId,
+    super.charId,
     required super.name,
-    required super.birthday,
-    required super.occupation,
-    required super.img,
-    required super.status,
-    required super.nickname,
-    required super.appearance,
-    required super.portrayed,
-    required super.category,
-    required super.betterCallSaulAppearance,
+    super.birthday,
+    super.occupation,
+    super.img,
+    super.status,
+    super.nickname,
+    super.appearance,
+    super.portrayed,
+    super.category,
+    super.betterCallSaulAppearance,
   });
 
   factory CharacterModel.fromJson(Map<String, dynamic> json) => CharacterModel(

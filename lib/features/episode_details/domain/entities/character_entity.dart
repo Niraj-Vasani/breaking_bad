@@ -8,30 +8,30 @@ import 'package:equatable/equatable.dart';
 
 class CharacterEntity extends Equatable {
   const CharacterEntity({
-    required this.charId,
+    this.charId,
     required this.name,
-    required this.birthday,
-    required this.occupation,
-    required this.img,
-    required this.status,
-    required this.nickname,
-    required this.appearance,
-    required this.portrayed,
-    required this.category,
-    required this.betterCallSaulAppearance,
+    this.birthday,
+    this.occupation,
+    this.img,
+    this.status,
+    this.nickname,
+    this.appearance,
+    this.portrayed,
+    this.category,
+    this.betterCallSaulAppearance,
   });
 
-  final int charId;
+  final int? charId;
   final String name;
-  final String birthday;
-  final List<String> occupation;
-  final String img;
-  final Status status;
-  final String nickname;
-  final List<int> appearance;
-  final String portrayed;
-  final String category;
-  final List<int> betterCallSaulAppearance;
+  final String? birthday;
+  final List<String>? occupation;
+  final String? img;
+  final Status? status;
+  final String? nickname;
+  final List<int>? appearance;
+  final String? portrayed;
+  final String? category;
+  final List<int>? betterCallSaulAppearance;
 
   @override
   List<Object?> get props => [

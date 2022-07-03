@@ -26,9 +26,7 @@ class EpisodeListWidget extends StatelessWidget {
             seriesName,
           ),
           bottom: TabBar(
-            tabs: totalSeasons
-                .map((season) => Text(season))
-                .toList(),
+            tabs: totalSeasons.map((season) => Text(season)).toList(),
             isScrollable: true,
             labelPadding:
                 const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
@@ -36,9 +34,11 @@ class EpisodeListWidget extends StatelessWidget {
         ),
         body: TabBarView(
           children: totalSeasons.map((season) {
-            List<EpisodeEntity> filteredList = episodeList
+            // Separated episodes according to seasons.
+            final List<EpisodeEntity> filteredList = episodeList
                 .where((episode) => episode.season.trim() == season)
                 .toList();
+
             return ListView.builder(
               itemCount: filteredList.length,
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
